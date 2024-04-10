@@ -19,9 +19,12 @@ function attivaProceed () {
     } else {
         button.setAttribute("disabled", true)
         avviso.style.display = "block"
-    }
-    
-    
+    }    
 }
 
+function changePage () {
+    window.location.href = "question.html"
+}
 
+const controllaProceed = document.getElementById('button')
+controllaProceed.addEventListener('click', changePage)
