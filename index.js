@@ -11,16 +11,17 @@ controllaCheckbox.addEventListener("click", attivaProceed)
 function attivaProceed () {
     const checkedInput = document.getElementById('checked')
     const button = document.getElementById("button");
-    const avviso = document.getElementsByClassName("condizione");
+    const avviso = document.getElementById("rimuovi");
     
     if(checkedInput.checked) {
         button.removeAttribute('disabled')
+        avviso.style.display = "none"
     } else {
         button.setAttribute("disabled", true)
+        avviso.style.display = "block"
     }
     
-    /* avviso.classList.add('removeP') */
     
 }
 
-attivaProceed ()
+
