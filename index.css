@@ -98,3 +98,14 @@ label {
     margin-top: 0;
 }
 
+.proceedBlueColored {
+    cursor: pointer;
+    background-color: #00ffff;
+    color: black;
+}
+
+.proceedBlueColored:hover {
+    box-shadow: 1px 1px 15px #00ffff52, 1px -1px 15px #00ffff52,
+        -1px 1px 15px #00ffff52, -1px -1px 15px #00ffff52;
+}
+

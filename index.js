@@ -15,10 +15,13 @@ function attivaProceed () {
     
     if(checkedInput.checked) {
         button.removeAttribute('disabled')
+        button.classList.add('proceedBlueColored')
         avviso.style.display = "none"
+
     } else {
         button.setAttribute("disabled", true)
         avviso.style.display = "block"
+        button.classList.remove('proceedBlueColored')
     }    
 }
 
