@@ -16,13 +16,17 @@ body {
     background-repeat: no-repeat;
     /* background-position: center;
     background-attachment: fixed; servono ?  */
-    max-width: 800px;
-    min-width: 800px;
+    
 }
 
 #big-container {
-    padding: 2em 10em 0 4em;
-    
+    padding: 2em 15em 0 4em;
+
+}
+
+#main {
+    max-width: 500px;
+    min-width: 500px;
 }
 
 h1,h2, button {
@@ -60,9 +64,14 @@ main {
     padding-right: 2em;
 }
 
+footer {
+    max-width: 800px;
+    min-width: 800px;
+}
+
 footer div {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 
 }
@@ -75,11 +84,12 @@ button {
     font-size: large;
     background-color: lightgray;
     color: white;
-    margin-left: 9.5vw;
+    margin-left: 250px;
 }
 
 label {
     font-size: 10px;
+    padding-left: .5em;
 }
 
 #rimuovi {
