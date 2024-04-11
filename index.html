@@ -4,29 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome page</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div id="topIcon">
-        <img src="assets/epicode_logo.png" alt="epicode-logo" class="epicode-logo">
-    </div>
-    <main id="main">
-        <h1>Welcome to <strong>your exam</strong></h1>
-        <h2>Instructions</h2>
-        <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.</p>
-        <ul>
-            <li>Each question is timed and can only be answered once.</li>
-            <li>Changing browser tab or opening other windows will invalidate the question.</li>
-            <li>This exam will take approx. 0-5 minutes.</li>
-        </ul>
-    </main>
-    <footer>
-        <div>
-            <input type="checkbox" name="check" id="checked">
-            <label for="check">I promise to answer myself without help from anyone</label>
-            <p id="rimuovi">* I promise to answer myself without help from anyone</p>
+    <section id="big-container">
+        <div id="topIcon">
+            <img src="assets/epicode_logo.png" alt="epicode-logo" class="epicode-logo">
         </div>
-        <button id="button" name="button" type="button" disabled>PROCEED</button>
-    </footer>
+        <main id="main">
+            <h1>Welcome to <strong>your exam</strong></h1>
+            <h2>Instructions</h2>
+            <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.</p>
+            <ul>
+                <li>Each question is timed and can only be answered once.</li>
+                <li>Changing browser tab or opening other windows will invalidate the question.</li>
+                <li>This exam will take approx. 0-5 minutes.</li>
+            </ul>
+        </main>
+        <footer>
+            <div>
+                <input type="checkbox" name="check" id="checked">
+                <label for="check"><strong>I promise to answer myself without help from anyone</strong></label>
+                <p id="rimuovi"><strong>* Click on the square to power the button proceed</strong></p>
+            </div>
+            <button id="button" name="button" type="button" disabled>PROCEED</button>
+        </footer>
+    </section>
 
 <script src="index.js"></script>
 </body>
