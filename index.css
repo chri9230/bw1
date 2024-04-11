@@ -60,10 +60,10 @@ main {
     padding-right: 2em;
 }
 
-footer {
+footer div {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
 
 }
 
@@ -84,5 +84,7 @@ label {
 
 #rimuovi {
     font-size: 10px;
+    padding-left: 3em;
+    margin-top: 0;
 }
 
