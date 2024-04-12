@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome page</title>
+    <link rel="stylesheet" href="index.css">
 </head>
-<body>
-    <div id="topIcon">
-        <img src="assets/epicode_logo.png" alt="epicode-logo" class="epicode-logo">
-    </div>
-    <main id="main">
-        <h1>Welcome to <strong>your exam</strong></h1>
-        <h2>Instructions</h2>
-        <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.</p>
-        <ul>
-            <li>Each question is timed and can only be answered once.</li>
-            <li>Changing browser tab or opening other windows will invalidate the question.</li>
-            <li>This exam will take approx. 0-5 minutes.</li>
-        </ul>
-    </main>
-    <footer>
-        <input type="checkbox" name="check" id="check">
-        <label for="check">I promise to answer myself without help from anyone</label>
-        <button id="proceed" disabled>PROCEED</button>
-    </footer>
 
-<script src="onload.js"></script>
+<body>
+    <div id="big-container">
+        <div id="topIcon">
+            <img src="assets/epicode_logo.png" alt="epicode-logo" class="epicode-logo">
+        </div>
+        <main id="main">
+            <h1>Welcome to <strong>your exam</strong></h1>
+            <h2>Instructions</h2>
+            <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're
+                unsure of a few of them.</p>
+            <ul>
+                <li>Each question is timed and can only be answered once.</li>
+                <li>Changing browser tab or opening other windows will invalidate the question.</li>
+                <li>This exam will take approx. 0-5 minutes.</li>
+            </ul>
+        </main>
+        <footer>
+            <div>
+                <input type="checkbox" name="check" id="checked">
+                <label for="check"><strong>I promise to answer myself without help from anyone</strong></label>
+                <button id="button" name="button" type="button" disabled>PROCEED</button>
+            </div>
+            <p id="rimuovi">* Click on the square to power the button proceed</p>
+        </footer>
+    </div>
+
+    <script src="index.js"></script>
 </body>
+
 </html>
