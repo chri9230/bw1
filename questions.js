@@ -130,19 +130,16 @@
       let allAnswers = currentQuestion.incorrect_answers
       allAnswers.push(currentQuestion.correct_answer)
 
-
-      for (let singleAnswer of allAnswers) {
-        console.log(singleAnswer)
-      }
-
-      allAnswers.forEach(answer => {
-        
+      let singleAnswer 
+      
+      for (let i = 0 ; i < allAnswers.length; i++) {
+        singleAnswer = allAnswers[i]
         const button = document.createElement('button')
-        button.innerHTML = answer.allAnswers
+        button.innerHTML = singleAnswer
         button.classList.add('btn')
         answerButton.appendChild(button)
-      })
-      
+        console.log(singleAnswer)
+      }
     }
 
     startQuiz ()
