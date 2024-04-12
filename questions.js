@@ -109,154 +109,46 @@
 
 
     const questionElement = document.getElementById('question')
-    const answerButton = document.getElementById('answers')
+    const answerButtons = document.getElementById('answers')
     const nextQuestion = document.getElementById('next')
-    
-    
-
+    let userInput 
+    let correctAnswer
     let currentQuestionIndex = 0
+    
+    
     let score = 0
-
+    
     function startQuiz () {
       currentQuestionIndex = 0 
       score = 0 
       showQuestion()
     }
-
+    
     function showQuestion() {
+      resetState()
       let currentQuestion = questions[currentQuestionIndex]
       questionElement.innerHTML = currentQuestion.question
-
+      
       let allAnswers = currentQuestion.incorrect_answers
       allAnswers.push(currentQuestion.correct_answer)
-
-      let singleAnswer 
       
-      for (let i = 0 ; i < allAnswers.length; i++) {
-        singleAnswer = allAnswers[i]
+      for (let singleAnswer of allAnswers) {
         const button = document.createElement('button')
         button.innerHTML = singleAnswer
         button.classList.add('btn')
-        answerButton.appendChild(button)
+        answerButtons.appendChild(button)
         console.log(singleAnswer)
+      }
+      
+    }
+
+    function resetState() {
+      while(answerButtons.firstChild){
+        answerButtons.removeChild(answerButtons.firstChild)
       }
     }
 
+
     startQuiz ()
     
-   /*  window.onload = function setNextQuestion() {
-
-          const creaP = document.createElement('p')
-          questionElement.appendChild(creaP)
-          creaP.innerText = domanda.question
-    } */
-
-
-
-// MI PRENDE LE DOMANDE MA LE PRENDE TUTTE INSIEME
-
-  /*   function sextNextQuestion()  {
-      for (let domanda of questions){
-          const creaP = document.createElement('p')
-          questionElement.appendChild(creaP)
-          creaP.innerText = domanda.question
-        }
-    }; */
-
-
-
-   /*  function startGame() {
-      console.log("started")
-      startButton.classList.add('hide')
-      questionContainerElement.classList.remove('hide')
-      shuffledQuestions = questions.sort(() => Math.random() - .5)
-      currentQuestionIndex = 0 
-      setNextQuestion()
   
-      
-  
-  }
-  
-  function setNextQuestion() {
-      resetState()
-      showQuestion(shuffledQuestions[currentQuestionIndex])
-  }
- */
-   /*  function showQuestion(question) {
-      questionElement.innerText = question.question
-      question.answers.forEach(answer => {
-          const button = document.createElement('button')
-          button.innerText = answer.text
-          button.classList.add('btn') 
-          if(answer.correct) {
-              button.dataset.correct = answer.correct
-          }
-          button.addEventListener('click', selectAnswer)
-          answerButtonsElement.appendChild(button)
-      })
-  }
-   */
-    
- /*    const startCountdown = () => {
-        let timer = 30;
-        intervallo = setInterval(() => {
-            timer--;
-            if (timer === 0) {
-                clearInterval(intervallo);
-                showQuestion();
-            }
-        }, 1000);
-    };
-    
-    const checkAnswer = (selectedAnswer) => {
-        if (selectedAnswer === questions[count - 1].correct_answer) {
-            arrayRisposte.push(true);
-        } else {
-            arrayRisposte.push(false);
-        }
-        showQuestion();
-    };
-     */
-
-    /* const initQuiz = () => {
-      sextNextQuestion();
-    };
-    
-    window.addEventListener("load", initQuiz); */
-
-    //creo un contatore che tenga conto del numero di domande effettuate, quando il contatore arriva a 10 comparirà un bottone che porta ai risultati
-    //creo una funzione che ad ogni numero di domanda mostri all'utente una nuova domanda e che mostri la prima già al caricamento della pagina
-    //di conseguenza creo una funzione che data una domanda generi un contenitore per le risposte sbagliate e per la risposta corretta. le n risposte dovranno essere mostrate in modo casuale (tramite il metodo random) ogni volta.
-    //una volta terminate le 10 domande come detto sopra dovrà comparire un bottone che ci porta su una nuova pagina html dove sono mostrati i risultati
-
-  
-
-
-
-
-/* 
-    const domande = document.getElementById('question')
-    const creaP = document.createElement('p')
-    domande.appendChild(creaP)
-
-   */
-
-
-
-
-
-
-
-
-
-
-    /*   function mostraDomanda(p, question) {
-      for(let domanda of domande) {
-        domanda.innerText = p
-        arrayRisposte.push(domanda.question)
-        console.log(domanda) 
-      }
-      return
-    } */
-
-    

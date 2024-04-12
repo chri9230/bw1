@@ -28,5 +28,16 @@ body {
 
 #big-container {
     padding: 2em 6em ;
+}
 
+.btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.incorrect {
+    background-color: red;
+}
+.correct {
+    background-color: green;
 }
