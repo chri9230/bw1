@@ -16,7 +16,7 @@
         type: "multiple",
         difficulty: "easy",
         question:
-          "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+          "In the programming language Java, which of these keywords would you put on a variable to make sure it get modified?",
         correct_answer: "Final",
         incorrect_answers: ["Static", "Private", "Public"],
       },
@@ -107,25 +107,94 @@
     //1 
     //creo una variabile vuoto che contenga l'array delle risposte
 
-    let count = 0;
-    let intervallo = null;
-    let arrayRisposte = [];
+
+    const questionElement = document.getElementById('question')
+    const answerButton = document.getElementById('answers')
+    const nextQuestion = document.getElementById('next')
     
-    const randomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
     
-    const shuffleAnswers = (answers) => answers.sort(() => Math.random() - 0.5);
+
+    let currentQuestionIndex = 0
+    let score = 0
+
+    function startQuiz () {
+      currentQuestionIndex = 0 
+      score = 0 
+      showQuestion()
+    }
+
+    function showQuestion() {
+      let currentQuestion = questions[currentQuestionIndex]
+      questionElement.innerHTML = currentQuestion.question
+
+      let allAnswers = currentQuestion.incorrect_answers
+      allAnswers.push(currentQuestion.correct_answer)
+
+      allAnswers.forEach(answer => {
+        const button = document.createElement('button')
+        button.innerHTML = answer.allAnswers
+        button.classList.add('btn')
+        answerButton.appendChild(button)
+      })
+      
+    }
+
+    startQuiz ()
     
-    const showQuestion = () => {
-        if (count < questions.length) {
-            const question = questions[count];
-            count++;
-            startCountdown();
-        } else {
-            showResults();
+   /*  window.onload = function setNextQuestion() {
+
+          const creaP = document.createElement('p')
+          questionElement.appendChild(creaP)
+          creaP.innerText = domanda.question
+    } */
+
+
+
+// MI PRENDE LE DOMANDE MA LE PRENDE TUTTE INSIEME
+
+  /*   function sextNextQuestion()  {
+      for (let domanda of questions){
+          const creaP = document.createElement('p')
+          questionElement.appendChild(creaP)
+          creaP.innerText = domanda.question
         }
-    };
+    }; */
+
+
+
+   /*  function startGame() {
+      console.log("started")
+      startButton.classList.add('hide')
+      questionContainerElement.classList.remove('hide')
+      shuffledQuestions = questions.sort(() => Math.random() - .5)
+      currentQuestionIndex = 0 
+      setNextQuestion()
+  
+      
+  
+  }
+  
+  function setNextQuestion() {
+      resetState()
+      showQuestion(shuffledQuestions[currentQuestionIndex])
+  }
+ */
+   /*  function showQuestion(question) {
+      questionElement.innerText = question.question
+      question.answers.forEach(answer => {
+          const button = document.createElement('button')
+          button.innerText = answer.text
+          button.classList.add('btn') 
+          if(answer.correct) {
+              button.dataset.correct = answer.correct
+          }
+          button.addEventListener('click', selectAnswer)
+          answerButtonsElement.appendChild(button)
+      })
+  }
+   */
     
-    const startCountdown = () => {
+ /*    const startCountdown = () => {
         let timer = 30;
         intervallo = setInterval(() => {
             timer--;
@@ -144,12 +213,13 @@
         }
         showQuestion();
     };
-    
-    const initQuiz = () => {
-        showQuestion();
+     */
+
+    /* const initQuiz = () => {
+      sextNextQuestion();
     };
     
-    window.addEventListener("load", initQuiz);
+    window.addEventListener("load", initQuiz); */
 
     //creo un contatore che tenga conto del numero di domande effettuate, quando il contatore arriva a 10 comparirà un bottone che porta ai risultati
     //creo una funzione che ad ogni numero di domanda mostri all'utente una nuova domanda e che mostri la prima già al caricamento della pagina
