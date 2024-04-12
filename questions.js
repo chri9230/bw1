@@ -130,7 +130,13 @@
       let allAnswers = currentQuestion.incorrect_answers
       allAnswers.push(currentQuestion.correct_answer)
 
+
+      for (let singleAnswer of allAnswers) {
+        console.log(singleAnswer)
+      }
+
       allAnswers.forEach(answer => {
+        
         const button = document.createElement('button')
         button.innerHTML = answer.allAnswers
         button.classList.add('btn')
