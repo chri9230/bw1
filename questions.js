@@ -113,11 +113,11 @@ const answersElement = document.getElementById('answers')
 const timerElement = document.getElementById('timer')
 const correctElement = document.getElementById('correct')
 const incorrectElement = document.getElementById('incorrect')
-
+const contatoreElement = document.getElementById('contatoreDomande')
 
 
 let currentQuestionIndex = 0
-let questionCount = 1
+let questionCount = -1
 let correctAnswers = 0
 let incorrectAnswers = 0
 let score = 0
@@ -136,10 +136,13 @@ function resetState() {
   while (answersElement.firstChild) {
     answersElement.removeChild(answersElement.firstChild)
   }
+  //contatoreElement = parseInt(questionCount) + parseInt(contatoreElement.innerText + 1)
 }
 
 function showQuestion() {
   resetState()
+  contatoreElement.innerText = parseInt(questionCount) + parseInt(contatoreElement.innerText)
+
   let currentQuestion = questions[currentQuestionIndex]
   questionElement.innerHTML = currentQuestion.question
   
@@ -158,15 +161,14 @@ function showQuestion() {
     answersElement.appendChild(answerButton)
     //console.log(answersElement)
   })
-
   //startTimer();
-  updateQuestionCount();
+  //updateQuestionCount();
 }
 
-function updateQuestionCount() {
+/* function updateQuestionCount() {
   const currentQuestion = currentQuestionIndex + 1
   questionCount.innerHTML = `QUESTION ${currentQuestion} / ${totalQuestions}`
-}
+} */
 
 function checkAnswer(answer) {
   const currentQuestion = questions[currentQuestionIndex]
@@ -178,6 +180,7 @@ function checkAnswer(answer) {
   clearInterval(interval)
   currentQuestionIndex++
   if (currentQuestionIndex < questions.length) {
+    
     showQuestion()
   } else {
     endQuiz()
@@ -189,6 +192,28 @@ function endQuiz(){
   questionElement.innerText = "Results"
   correctElement.innerText = "Right answers: " + correctAnswers
   incorrectElement.innerText = "Wrong answers: " + incorrectAnswers
+  let totalQuestions = correctAnswers + incorrectAnswers
+  //totalQuestions = (correctAnswers / totalQuestions) * 100
+  const result = document.createElement('p')
+  if(correctAnswers > 5) {
+    answersElement.innerText = "Congratulation, you've passed the test"
+    result.innerText = 'Correct answers ' + correctAnswers + '/' + totalQuestions  
+  } if (correctAnswers > 8) {
+    answersElement.innerText = "You're on fire! you've done such a great job !!"
+    result.innerText = 'Correct answers ' + correctAnswers + '/' + totalQuestions  
+  } else if( correctAnswers <= 5) {
+    answersElement.innerText = "You didn't passed the test, keep studying more !"
+    result.innerText = 'Correct answers ' + correctAnswers + '/' + totalQuestions  
+
+  }
+  timerElement.remove()
+
+  const resultsElement = document.getElementById('results')
+  resultsElement.appendChild(result)
+
+  let removeQuestionCounter = document.getElementById('contatoreDomandeP')
+  removeQuestionCounter.remove()
+
 }
 
 
