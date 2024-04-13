@@ -154,13 +154,14 @@ function showQuestion() {
 
   allAnswers.forEach((answer) => {
     const answerButton = document.createElement("button")
+    answerButton.classList.add('btn')
     answerButton.textContent = answer
 
     answerButton.addEventListener("click", () => checkAnswer(answer))
     answersElement.appendChild(answerButton)
     //console.log(answersElement)
   })
-  startTimer();
+  //startTimer();
   
 }
 
@@ -207,7 +208,7 @@ function endQuiz(){
   const resultsElement = document.getElementById('results')
   resultsElement.appendChild(result)
 
-  generateChart(resultChart)
+  //generateChart(resultChart)
 
   let removeQuestionCounter = document.getElementById('contatoreDomandeP')
   removeQuestionCounter.remove()
