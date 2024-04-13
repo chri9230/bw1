@@ -122,7 +122,6 @@ let currentQuestionIndex = 0
 let correctAnswers = 0
 let incorrectAnswers = 0
 let score = 0
-let timer = 30
 let interval
 let totalQuestions = questions.length
 
@@ -161,7 +160,7 @@ function showQuestion() {
     answersElement.appendChild(answerButton)
     //console.log(answersElement)
   })
-  //startTimer();
+  startTimer();
   
 }
 
@@ -208,9 +207,32 @@ function endQuiz(){
   const resultsElement = document.getElementById('results')
   resultsElement.appendChild(result)
 
+  generateChart(resultChart)
+
   let removeQuestionCounter = document.getElementById('contatoreDomandeP')
   removeQuestionCounter.remove()
 
+}
+
+function startTimer() {
+  let timer = 30;
+  timerElement.innerText = timer;
+
+
+  interval = setInterval(() => {
+    timer--;
+    timerElement.innerText = timer;
+    if (timer === 0) {
+      clearInterval(interval);
+      incorrectAnswers++;
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        showQuestion();
+      } else {
+        endQuiz();
+      }
+    }
+  }, 1000);
 }
 
 
