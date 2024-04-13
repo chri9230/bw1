@@ -113,11 +113,12 @@ const answersElement = document.getElementById('answers')
 const timerElement = document.getElementById('timer')
 const correctElement = document.getElementById('correct')
 const incorrectElement = document.getElementById('incorrect')
-const contatoreElement = document.getElementById('contatoreDomande')
 
 
+
+let contatoreElement = document.getElementById('contatoreDomande')
 let currentQuestionIndex = 0
-let questionCount = -1
+
 let correctAnswers = 0
 let incorrectAnswers = 0
 let score = 0
@@ -136,12 +137,11 @@ function resetState() {
   while (answersElement.firstChild) {
     answersElement.removeChild(answersElement.firstChild)
   }
-  //contatoreElement = parseInt(questionCount) + parseInt(contatoreElement.innerText + 1)
 }
 
 function showQuestion() {
   resetState()
-  contatoreElement.innerText = parseInt(questionCount) + parseInt(contatoreElement.innerText)
+  contatoreElement.innerText ++
 
   let currentQuestion = questions[currentQuestionIndex]
   questionElement.innerHTML = currentQuestion.question
@@ -162,13 +162,10 @@ function showQuestion() {
     //console.log(answersElement)
   })
   //startTimer();
-  //updateQuestionCount();
+  
 }
 
-/* function updateQuestionCount() {
-  const currentQuestion = currentQuestionIndex + 1
-  questionCount.innerHTML = `QUESTION ${currentQuestion} / ${totalQuestions}`
-} */
+
 
 function checkAnswer(answer) {
   const currentQuestion = questions[currentQuestionIndex]
@@ -193,7 +190,7 @@ function endQuiz(){
   correctElement.innerText = "Right answers: " + correctAnswers
   incorrectElement.innerText = "Wrong answers: " + incorrectAnswers
   let totalQuestions = correctAnswers + incorrectAnswers
-  //totalQuestions = (correctAnswers / totalQuestions) * 100
+  
   const result = document.createElement('p')
   if(correctAnswers > 5) {
     answersElement.innerText = "Congratulation, you've passed the test"
