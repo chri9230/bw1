@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questions</title>
     <link rel="stylesheet" href="question.css">
 </head>
+
 <body>
     <div id="big-container">
         <div id="topbar">
@@ -14,24 +16,30 @@
                 TIMER
             </div>
         </div>
-        <main>
+        <div id="quiz-container">
             <div id="question">
-                
+
             </div>
             <div id="answers">
-                <p class="btn">Substitude this p with the answers</p>
-                <p class="btn">Substitude this p with the answers</p>
-                <p class="btn">Substitude this p with the answers</p>
-                <p class="btn">Substitude this p with the answers</p>
+
             </div>
-        </main>
+        </div>
 
 
-            <footer id="question-number">
+        <footer id="question-number">
             <p>QESTION <span id="contatoreDomande">1</span> /10</p>
-            <button id="next">Next</button>
+            
+            <div id="results">
+                <p><span id="correct"></span></p> 
+                <div class="chart-container">  
+                  <canvas id="resultChart"></canvas>  
+                </div>
+                <p><span id="incorrect"></span></p>
+            </div>
         </footer>
     </div>
     <script src="questions.js"></script>
 </body>
+
 </html>
+
