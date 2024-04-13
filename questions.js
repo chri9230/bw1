@@ -184,29 +184,55 @@ function checkAnswer(answer) {
   }
 }
 
+
+
 function endQuiz(){
   resetState()
+  
+  let showFinalEvaluation = document.getElementById("answers")
+  
   questionElement.innerText = "Results"
-  correctElement.innerText = "Right answers: " + correctAnswers
-  incorrectElement.innerText = "Wrong answers: " + incorrectAnswers
+  questionElement.classList.add("results")
+  
+  
+
+  //correctElement.innerText = "Right answers: " + correctAnswers
+  let correctResult = (correctAnswers / (correctAnswers + incorrectAnswers)) * 100
+  correctElement.innerText = `Correct \r ${correctResult} %`
+  correctElement.classList.add('correct')
+  
+  let incorrectResult = (incorrectAnswers / (correctAnswers + incorrectAnswers)) * 100
+  incorrectElement.innerText = `Wrong \r ${incorrectResult} %`
+  incorrectElement.classList.add('incorrect')
+  
+  
   let totalQuestions = correctAnswers + incorrectAnswers
   
   const result = document.createElement('p')
   if(correctAnswers > 5) {
     answersElement.innerText = "Congratulation, you've passed the test"
-    result.innerText = 'Correct answers ' + correctAnswers + '/' + totalQuestions  
+    //
+    showFinalEvaluation.classList.add('finalEvaluation')
+    
+    //result.innerText = 'Correct answers ' + correctAnswers + '/' + totalQuestions  
   } if (correctAnswers > 8) {
     answersElement.innerText = "You're on fire! you've done such a great job !!"
-    result.innerText = 'Correct answers ' + correctAnswers + '/' + totalQuestions  
+    //
+    showFinalEvaluation.classList.add('finalEvaluation')
+    
+    //result.innerText = 'Correct answers ' + correctAnswers + '/' + totalQuestions  
   } else if( correctAnswers <= 5) {
     answersElement.innerText = "You didn't passed the test, keep studying more !"
-    result.innerText = 'Correct answers ' + correctAnswers + '/' + totalQuestions  
+    //
+    showFinalEvaluation.classList.add('finalEvaluation')
+    
+    //result.innerText = 'Correct answers ' + correctAnswers + '/' + totalQuestions  
 
   }
   timerElement.remove()
 
-  const resultsElement = document.getElementById('results')
-  resultsElement.appendChild(result)
+  /* const resultsElement = document.getElementById('results')
+  resultsElement.appendChild(result) */
 
   //generateChart(resultChart)
 
